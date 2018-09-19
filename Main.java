@@ -1,4 +1,10 @@
-package com.company;
+package TestPack;
+
+//импортируем классы из другого пэкеджа
+import com.company.AnotherPubClass;
+import com.company.PubClass;
+//import com.company.DefClass;
+// по умолчанию и не должен импортироваться
 
 public class Main {
 
@@ -8,67 +14,64 @@ public class Main {
         int l = 0;
         int n = 0;
 
+        //проверяем конструкторы суперкласса из другого пакета. Работает публичный
 
 
-        //проверяем конструкторы суперкласса из другого пакета. Не работает закрытый
-
-
-        PubClass nechto = new PubClass(9);
-        PubClass nechto2 = new PubClass(9, 11);
-        PubClass nechto3 = new PubClass(9, 11, 13);
+//      PubClass nechto1 = new PubClass(9);
+        PubClass nechto = new PubClass(9, 11);
+//      PubClass nechto3 = new PubClass(9, 11, 13);
 //      PubClass nechto4 = new PubClass(9, 11, 13, 15);
-
-//проверяем переменные суперкласса. dPub не работает и не должна
-        l = nechto.a;
+//проверяем переменные суперкласса из другого пакета. Вызывается только bPub
+//      l = nechto.a;
         l = nechto.b;
-        l = nechto.c;
+//      l = nechto.c;
 //      l = nechto.d;
-//вызываем методы суперкласса. Ощибки компиляции быть должны быть только в последнем
-        n = nechto.defAdd();
+//вызываем методы класса. Ощибки компиляции быть не должно только в letscount2
+//      n = nechto.defAdd();
         n = nechto.pubAdd();
-        n = nechto.protAdd();
+//      n = nechto.protAdd();
 //      n = nechto.privAdd();
-        System.out.println("Public superclass looks fine to me");
+        System.out.println("Superclass from the first package seems okay");
 
 
-        //проверяем конструкторы субкласса. Всё в порядке
+        //проверяем конструкторы субкласса из другого пакета. Работает публичный и встроенный
 
-        AnotherPubClass drugoe = new AnotherPubClass(9);
-        AnotherPubClass drugoe2 = new AnotherPubClass(9, 11);
-        AnotherPubClass drugoe3 = new AnotherPubClass(9, 11, 13);
+//      AnotherPubClass drugoe1 = new AnotherPubClass(9);
+        AnotherPubClass drugoe = new AnotherPubClass(9, 11);
+//      AnotherPubClass drugoe3 = new AnotherPubClass(9, 11, 13);
 
-        //проверяем переменные субкласса. Все новые и унаследованные переменные в порядке
-        l = drugoe.a;
-        l = drugoe.newA;
+//проверяем переменные субкласса из другого пакета. Вызывается только b и newB (они оба  открыты)
+//      l = drugoe.a;
+//      l = drugoe.newA;
         l = drugoe.b;
         l = drugoe.newB;
-        l = drugoe.c;
-        l = drugoe.newC;
-
-        //вызываем методы субкласса. Все унаследованные методы в порядке
-        n = drugoe.defAdd();
+//      l = drugoe.c;
+//      l = drugoe.newC;
+//вызываем методы субкласса. Ощибки компиляции быть не должно только в letscount2
+//      n = drugoe.defAdd();
         n = drugoe.pubAdd();
-        n = drugoe.protAdd();
-        System.out.println("Public subclass is okay too");
+//      n = drugoe.protAdd();
+        System.out.println("Foreign subclass - pass!");
 
-        //проверяем конструкторы класса без модификатора. Private не работает
+        //проверяем конструкторы субкласса, который в этом же пакете. Всё в порядке
 
-        DefClass ewe = new DefClass(9);
-        DefClass ewe2 = new DefClass(9, 11);
-        DefClass ewe3 = new DefClass(9, 11, 13);
-//      DefClass ewe4 = new DefClass(9, 11, 13, 15);
+        InheritedPubClass ewe2 = new InheritedPubClass(9, 11);
+        InheritedPubClass ewe = new InheritedPubClass(9, 11, 13);
 
-        //проверяем переменные класса без модификатора. d не работает и не должна
-        l = ewe.a;
+//проверяем переменные субкласса, который в этом же пакете. cPub не работает, и правильно!
         l = ewe.b;
-        l = ewe.c;
-//      l = ewe.d;
-        //вызываем методы класса. Ощибки - только в private
-        n = ewe.defAdd();
+        l = ewe.newB;
+//      l = ewe.c;
+        l = ewe.newC;
+
+
+        //вызываем методы. Оба метода работают
         n = ewe.pubAdd();
         n = ewe.protAdd();
-//      n = ewe.privAdd();
-        System.out.println("No probs in the package class either!");
+        System.out.println("And finally - our own subclass! Very nice!");
+
+
+
 
     }
 }
