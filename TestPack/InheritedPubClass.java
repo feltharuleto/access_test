@@ -1,6 +1,7 @@
 package TestPack;
 
 import com.company.PubClass;
+/* Класс, на котором проверяем, как наследуются содержимое открытого класса из другого пакета*/
 
 public class InheritedPubClass extends PubClass {
     //обращаемся к унаследованным переменным. Private d и package a не работают
@@ -31,7 +32,7 @@ public class InheritedPubClass extends PubClass {
 
     //обращаемся к унаследованным методам. 1-й и 4-й снова в пролёте
 
-//не должно унаследоваться, т.к. без модификатора
+    //не должно унаследоваться, т.к. без модификатора
 /*  int defAdd() {
         return super.defAdd();
 }
@@ -45,7 +46,7 @@ public class InheritedPubClass extends PubClass {
         return super.protAdd();
     }
 
-// private переменная не наследуется
+    // private переменная не наследуется
 /*    private int privAdd() {
         return super.privAdd();
     }
