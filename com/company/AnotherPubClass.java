@@ -1,7 +1,7 @@
 package com.company;
-
+/* Это класс, в котором мы проверяем, правильно ли наследуются составляющие класса в том же пакете с учётом модификаторов*/
 public class AnotherPubClass extends PubClass{
-    //обращаемся к унаследованным переменным. Private dPub работать не должна
+    //обращаемся к унаследованным переменным. Private d работать не должна
     int newA = a;
     public int newB = b;
     protected int newC = c;
