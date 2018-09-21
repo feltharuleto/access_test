@@ -1,29 +1,26 @@
 package com.company;
-
+/*Основной код пакета, в котором мы проверим открытый суперкласс, открытый субкласс и класс без модификатора из этого же пакета*/
 public class Main {
 
     public static void main(String[] args) {
-        // write your code here
+        
         System.out.println("I'm gonna test everything from a second package!");
         int l = 0;
         int n = 0;
 
-
-
         //проверяем конструкторы суперкласса из другого пакета. Не работает закрытый
-
 
         PubClass nechto = new PubClass(9);
         PubClass nechto2 = new PubClass(9, 11);
         PubClass nechto3 = new PubClass(9, 11, 13);
 //      PubClass nechto4 = new PubClass(9, 11, 13, 15);
 
-//проверяем переменные суперкласса. dPub не работает и не должна
+        //проверяем переменные суперкласса. d не работает и не должна
         l = nechto.a;
         l = nechto.b;
         l = nechto.c;
 //      l = nechto.d;
-//вызываем методы суперкласса. Ощибки компиляции быть должны быть только в последнем
+        //вызываем методы суперкласса. Ощибки компиляции быть должны быть только в последнем
         n = nechto.defAdd();
         n = nechto.pubAdd();
         n = nechto.protAdd();
@@ -63,7 +60,7 @@ public class Main {
         l = ewe.b;
         l = ewe.c;
 //      l = ewe.d;
-        //вызываем методы класса. Ощибки - только в private
+        //вызываем методы класса. Ошибки - только в private
         n = ewe.defAdd();
         n = ewe.pubAdd();
         n = ewe.protAdd();

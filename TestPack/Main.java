@@ -1,15 +1,16 @@
 package TestPack;
 
-//импортируем классы из другого пэкеджа
+/* Пакет, в котором мы проверяем импортированные из другого пакета классы и один - из этого*/
+//импортируем классы из другого пакета
 import com.company.AnotherPubClass;
 import com.company.PubClass;
 //import com.company.DefClass;
-// по умолчанию и не должен импортироваться
+// без модификатора и не должен импортироваться
 
 public class Main {
 
     public static void main(String[] args) {
-        // write your code here
+        
         System.out.println("I'm gonna test everything from a second package!");
         int l = 0;
         int n = 0;
@@ -21,12 +22,12 @@ public class Main {
         PubClass nechto = new PubClass(9, 11);
 //      PubClass nechto3 = new PubClass(9, 11, 13);
 //      PubClass nechto4 = new PubClass(9, 11, 13, 15);
-//проверяем переменные суперкласса из другого пакета. Вызывается только bPub
+        //проверяем переменные суперкласса из другого пакета. Вызывается только b
 //      l = nechto.a;
         l = nechto.b;
 //      l = nechto.c;
 //      l = nechto.d;
-//вызываем методы класса. Ощибки компиляции быть не должно только в letscount2
+        //вызываем методы класса. Ошибки компиляции быть не должно только в public
 //      n = nechto.defAdd();
         n = nechto.pubAdd();
 //      n = nechto.protAdd();
@@ -40,14 +41,14 @@ public class Main {
         AnotherPubClass drugoe = new AnotherPubClass(9, 11);
 //      AnotherPubClass drugoe3 = new AnotherPubClass(9, 11, 13);
 
-//проверяем переменные субкласса из другого пакета. Вызывается только b и newB (они оба  открыты)
+        //проверяем переменные субкласса из другого пакета. Вызывается только b и newB (они оба  открыты)
 //      l = drugoe.a;
 //      l = drugoe.newA;
         l = drugoe.b;
         l = drugoe.newB;
 //      l = drugoe.c;
 //      l = drugoe.newC;
-//вызываем методы субкласса. Ощибки компиляции быть не должно только в letscount2
+        //вызываем методы субкласса. Ошибки компиляции быть не должно только в public
 //      n = drugoe.defAdd();
         n = drugoe.pubAdd();
 //      n = drugoe.protAdd();
@@ -58,7 +59,7 @@ public class Main {
         InheritedPubClass ewe2 = new InheritedPubClass(9, 11);
         InheritedPubClass ewe = new InheritedPubClass(9, 11, 13);
 
-//проверяем переменные субкласса, который в этом же пакете. cPub не работает, и правильно!
+        //проверяем переменные субкласса, который в этом же пакете. cPub не работает, и правильно!
         l = ewe.b;
         l = ewe.newB;
 //      l = ewe.c;
@@ -69,9 +70,6 @@ public class Main {
         n = ewe.pubAdd();
         n = ewe.protAdd();
         System.out.println("And finally - our own subclass! Very nice!");
-
-
-
 
     }
 }
