@@ -5,12 +5,12 @@ package TestPack;
 import com.company.AnotherPubClass;
 import com.company.PubClass;
 //import com.company.DefClass;
-// по умолчанию и не должен импортироваться
+// без модификатора и не должен импортироваться
 
 public class Main {
 
     public static void main(String[] args) {
-        // write your code here
+        
         System.out.println("I'm gonna test everything from a second package!");
         int l = 0;
         int n = 0;
