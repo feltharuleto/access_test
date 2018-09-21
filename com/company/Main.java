@@ -15,7 +15,7 @@ public class Main {
         PubClass nechto3 = new PubClass(9, 11, 13);
 //      PubClass nechto4 = new PubClass(9, 11, 13, 15);
 
-        //проверяем переменные суперкласса. dPub не работает и не должна
+        //проверяем переменные суперкласса. d не работает и не должна
         l = nechto.a;
         l = nechto.b;
         l = nechto.c;
@@ -60,7 +60,7 @@ public class Main {
         l = ewe.b;
         l = ewe.c;
 //      l = ewe.d;
-        //вызываем методы класса. Ощибки - только в private
+        //вызываем методы класса. Ошибки - только в private
         n = ewe.defAdd();
         n = ewe.pubAdd();
         n = ewe.protAdd();
